@@ -19,6 +19,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import { useAuth } from "@auth/useAuth";
+import { useChatSignalR } from "@/app/useChatSignalR";
 
 const DRAWER_WIDTH_EXPANDED = 240;
 const DRAWER_WIDTH_COLLAPSED = 76;
@@ -76,6 +77,8 @@ export default function AuthenticatedLayout() {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const { user } = useAuth();
+
+useChatSignalR();
 
   const drawerWidth = collapsed ? DRAWER_WIDTH_COLLAPSED : DRAWER_WIDTH_EXPANDED;
 

@@ -8,6 +8,9 @@ import Profile from "./pages/Profile";
 import HomePage from "./pages/HomePage";
 import ChatsPage from "./pages/ChatsPage";
 import AuthenticatedLayout from "./layouts/AuthenticatedLayout";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function GuestOnly({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -43,6 +46,7 @@ function NotFound() {
 
 export default function App() {
   return (
+    <>
     <Routes>
       <Route path="/" element={<RootPage />} />
 
@@ -78,5 +82,9 @@ export default function App() {
 
       <Route path="*" element={<NotFound />} />
     </Routes>
+
+    <ToastContainer />
+    </>
+    
   );
 }
